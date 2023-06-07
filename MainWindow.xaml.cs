@@ -40,6 +40,7 @@ namespace FlexibleCSVE
             commaSpecifiers.Add(":");
             commaSpecifiers.Add(",");
             specifierComboBox.ItemsSource = commaSpecifiers;
+            specifierComboBox.SelectedIndex = 0;
         }
 
         private void openItem_Click(object sender, RoutedEventArgs e)
