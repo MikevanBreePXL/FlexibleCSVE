@@ -7,7 +7,7 @@ This makes it a very simple, fluent looking and lightweight program/tool.
 ***You might need to install .NET 6.0 for this.***
 
 ---
-<img src="https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/536b7186-c292-4f61-a2e0-53b8b94d04e2" alt="program screenshot" />
+<img src="https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/b689f524-66b0-49fb-95e6-9fe1eaa17474" alt="program screenshot" />
 <img src="https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/e7fdbfcc-6e74-4c5c-b0e3-2cc040aa72c6" alt="program screenshot" />
 <img src="https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/ebded63c-6c50-4153-b144-d56b67d6421c" alt="program screenshot" />
 
