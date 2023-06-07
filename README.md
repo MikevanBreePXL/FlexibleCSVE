@@ -15,7 +15,7 @@ This makes it a very simple, fluent looking and lightweight program/tool.
 
 # Tips
 - The program automatically fills missing areas with 0's
-- Nothing is save until you go to File -> Save (to .csv). This works both negative and positive.
+- Nothing is saved until you go to File -> Save... (This has both it's negative and positive sides.)
 - Choose the right comma specifier before opening (and saving!) the file. It can't corrupt the original file, but the tool will have visual glitches until you open it right.
 
 ---
