@@ -10,8 +10,8 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top" Height="20" Background="#FFC5C5C5">
             <MenuItem Header="_File" Width="40">
-                <MenuItem Header="_Open" Name="openItem" Click="openItem_Click" />
-                <MenuItem Header="_Save" Name="saveItem" Click="saveItem_Click" />
+                <MenuItem Header="_Open..." Name="openItem" Click="openItem_Click" />
+                <MenuItem Header="_Save..." Name="saveItem" Click="saveItem_Click" />
             </MenuItem>
             <MenuItem Header="E_xit" Name="exitItem" Click="exitItem_Click" Width="40" />
         </Menu>
