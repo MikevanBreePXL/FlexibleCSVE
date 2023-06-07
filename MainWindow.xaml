@@ -1,18 +1,18 @@
-﻿<Window x:Class="CSVOpener.MainWindow"
+﻿<Window x:Class="FlexibleCSVE.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CSVOpener"
+        xmlns:local="clr-namespace:FlexibleCSVE"
         mc:Ignorable="d"
-        Title="Mike's flexible CSVE" Height="450" Width="900">
+        Title="Mike's Flexible CSV Editor" Height="450" Width="900">
     <DockPanel>
         <Menu DockPanel.Dock="Top" Height="20" Background="#FFC5C5C5">
-            <MenuItem Header="_File">
+            <MenuItem Header="_File" Width="40">
                 <MenuItem Header="_Open" Name="openItem" Click="openItem_Click" />
                 <MenuItem Header="_Save" Name="saveItem" Click="saveItem_Click" />
             </MenuItem>
-            <MenuItem Header="E_xit" Name="exitItem" Click="exitItem_Click" />
+            <MenuItem Header="E_xit" Name="exitItem" Click="exitItem_Click" Width="40" />
         </Menu>
         <Grid DockPanel.Dock="Bottom">
             <Grid.ColumnDefinitions>
@@ -21,10 +21,13 @@
             </Grid.ColumnDefinitions>
             <Label Content="Select:" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="16" Grid.ColumnSpan="2"/>
             <ListBox Name="contentListBox" Height="NaN" Margin="50,84,436,145" Width="NaN" FontFamily="Bahnschrift SemiBold" FontSize="14" SelectionChanged="contentListBox_SelectionChanged" Grid.ColumnSpan="2"/>
-            <Button Name="saveDataButton" Content="Save data" HorizontalAlignment="Left" Margin="66,0,0,90" VerticalAlignment="Bottom" FontFamily="Bahnschrift SemiBold" FontSize="14" Width="80" Click="saveDataButton_Click" IsEnabled="False" Grid.Column="1"/>
-            <Button x:Name="newRowButton" Content="Add a new row" HorizontalAlignment="Left" Margin="50,0,0,40" VerticalAlignment="Bottom" FontFamily="Bahnschrift SemiBold" FontSize="14" Width="120" Click="newRowButton_Click" IsEnabled="False" Grid.ColumnSpan="2" />
+            <Button Name="saveDataButton" Content="Save data" HorizontalAlignment="Left" Margin="213,0,0,90" VerticalAlignment="Bottom" FontFamily="Bahnschrift SemiBold" FontSize="14" Width="80" Click="saveDataButton_Click" IsEnabled="False" Grid.Column="1"/>
+            <Button x:Name="newRowButton" Content="Add a new row" HorizontalAlignment="Left" Margin="50,0,0,90" VerticalAlignment="Bottom" FontFamily="Bahnschrift SemiBold" FontSize="14" Width="120" Click="newRowButton_Click" IsEnabled="False" Grid.ColumnSpan="2" />
+            <Button x:Name="deleteRowButton" Content="Delete a row" HorizontalAlignment="Left" Margin="50,0,0,40" VerticalAlignment="Bottom" FontFamily="Bahnschrift SemiBold" FontSize="14" Width="120" IsEnabled="False" Click="deleteRowButton_Click" Grid.ColumnSpan="2" />
+            
             <Canvas Name="editCanvas" Margin="322,84,36,40" Width="342" Grid.Column="1"  />
-            <Button x:Name="deleteRowButton" Content="Delete a row" HorizontalAlignment="Left" Margin="143,0,0,40" VerticalAlignment="Bottom" FontFamily="Bahnschrift SemiBold" FontSize="14" Width="120" IsEnabled="False" Grid.Column="1" Click="deleteRowButton_Click" />
+            <Label Grid.Column="1" Content="Comma Specifier:" HorizontalAlignment="Left" Margin="106,0,0,38" VerticalAlignment="Bottom" FontFamily="Bahnschrift SemiBold" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <ComboBox Name="specifierComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="230,0,0,39" VerticalAlignment="Bottom" Width="63" FontSize="16" FontFamily="Bahnschrift SemiBold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
 
         </Grid>
     </DockPanel>
