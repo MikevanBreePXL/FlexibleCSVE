@@ -1,2 +1,28 @@
-# FlexibleCSVE
-A simple Windows .csv editor based on .NET / C#
+# Flexible CSVEditor
+A simple and flexible Windows .CSV reader and editor, made around .NET / C#
+
+***You might need to install .NET 6.0 for this.***
+
+---
+<br/>
+
+# Tips
+- The program automatically fills missing areas with 0's
+- Nothing is save until you go to File -> Save (to .csv). This works both negative and positive.
+
+---
+<br/>
+
+# Installation
+## step 1: Download
+Download the zip and extract this where you want your program files to stay.
+Examples: `C:\Program Files`,  `%localappdata%`, or in a local folder as a portable program.
+## step 2: shortcut
+If you've extracted your folder in a more hidden location (say for example ProgramFiles)
+=> Right click on "CSVOpener.exe" 
+=> Copy to...
+=> Desktop (Create Shortcut)
+## step 3: Enjoy!
+No more installation past this, launch the program from the shortcut or \*.exe and it should be there in seconds!
+
+---
