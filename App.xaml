@@ -1,9 +1,8 @@
-﻿<Application x:Class="CSVOpener.App"
+﻿<Application x:Class="FlexibleCSVE.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CSVOpener"
+             xmlns:local="clr-namespace:FlexibleCSVE"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
     </Application.Resources>
 </Application>
