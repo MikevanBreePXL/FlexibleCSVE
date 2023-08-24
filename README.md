@@ -1,5 +1,5 @@
 # Flexible CSV Editor
-A simple and flexible Windows .CSV reader and editor, made around .NET / C#.
+A simple and flexible Windows .CSV reader and editor, made around .NET / C#. The way this program structurally works is object-oriented.
 <br/><br/>
 The tool works as much around the .csv file as it can, it will automatically change all its labels to match column names upon opening, show the right amount of fields, etc.
 This makes it a very simple, fluent looking and lightweight program/tool.
@@ -24,13 +24,13 @@ This makes it a very simple, fluent looking and lightweight program/tool.
 # Installation
 ## step 1: Download
 Download the zip and extract this where you want your program files to stay.
-Examples: `C:\Program Files`,  `%localappdata%`, or in a local folder as a portable program.
-## step 2: shortcut
-If you've extracted your folder in a more hidden location (say for example ProgramFiles)
+Examples: `C:\Program Files`,  `%localappdata%`, or in a local folder on your Desktop/Documents as a portable program.
+## step 2: Shortcut
+If you've extracted your folder in a more hidden location (see previous examples)
 => Right click on "CSVOpener.exe" 
-=> Copy to...
+=> Send to >
 => Desktop (Create Shortcut)
 ## step 3: Enjoy!
-No more installation past this, launch the program from the shortcut or \*.exe and it should be there in seconds!
+Installation done, launch the program from the shortcut or \*.exe and it should pop right up!
 
 ---
