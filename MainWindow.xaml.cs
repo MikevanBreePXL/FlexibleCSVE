@@ -25,9 +25,10 @@ namespace FlexibleCSVE
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string fileLocation;
         public IList<string> _contentList = new ObservableCollection<string>();
         private FontFamily _textFont = new FontFamily("Bahnschrift Semibold");
-        public IList<string> commaSpecifiers = new List<string>();
+        public IList<string> commaSpecifiers = new List<string> { ";", ":", ","};
 
         private string[] columnNamesList;
 
@@ -35,12 +36,7 @@ namespace FlexibleCSVE
         {
             InitializeComponent();
             contentListBox.ItemsSource = _contentList;
-
-            commaSpecifiers.Add(";");
-            commaSpecifiers.Add(":");
-            commaSpecifiers.Add(",");
             specifierComboBox.ItemsSource = commaSpecifiers;
-            specifierComboBox.SelectedIndex = 0;
         }
 
         private void openItem_Click(object sender, RoutedEventArgs e)
@@ -48,6 +44,7 @@ namespace FlexibleCSVE
             OpenFileDialog? csv = csvFileDialog();
             if (csv != null)
             {   // File selected:
+                fileLocation = csv.FileName;
                 _contentList.Clear();
                 string[] totalContentList;
                 using (StreamReader reader = new StreamReader(csv.FileName))
@@ -200,6 +197,24 @@ namespace FlexibleCSVE
                 newRowButton.IsEnabled = true;
                 deleteRowButton.IsEnabled = true;
             }
+        }
+
+        private void specifierComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (specifierComboBox.SelectedIndex < 0 || fileLocation == null) { return; }
+            _contentList.Clear();
+            string[] totalContentList;
+            using (StreamReader reader = new StreamReader(fileLocation))
+            {
+                columnNamesList = reader.ReadLine().Split(specifierComboBox.SelectedValue.ToString());
+                totalContentList = reader.ReadToEnd().Split("\n");
+            }
+            foreach (string line in totalContentList)
+            {
+                _contentList.Add(line);
+            }
+
+            drawEditor(editCanvas, columnNamesList);
         }
     }
 }

@@ -31,7 +31,7 @@
             <Button Grid.Row="1" Grid.Column="0" Name="deleteRowButton" Content="Delete a row" FontFamily="Bahnschrift SemiBold" FontSize="14" IsEnabled="False" Click="deleteRowButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="33,0,0,22" />
 
             <Label Grid.Row="1" Grid.Column="0" Content="Comma Specifier:" FontFamily="Bahnschrift SemiBold" FontSize="14" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,66,22"/>
-            <ComboBox Grid.Row="1" Grid.Column="0" Name="specifierComboBox" FontSize="16" FontFamily="Bahnschrift SemiBold" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,33,22" />
+            <ComboBox Grid.Row="1" Grid.Column="0" Name="specifierComboBox" FontSize="16" FontFamily="Bahnschrift SemiBold" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,33,22" SelectionChanged="specifierComboBox_SelectionChanged" SelectedIndex="0" />
 
 
             <Canvas Name="editCanvas" Background="#ffefefef" Grid.Column="1" Grid.RowSpan="2" Margin="0,10,10,10" ClipToBounds="True" />
