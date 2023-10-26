@@ -24,13 +24,10 @@ Search (searches through entries, not column names):
 - The program automatically fills missing areas with ""
 - Entries aren't saved until you click on "Change row"
 - The currently edited values aren't auto-saved anywhere
-
----
-
+- 
+<br />
 
 # Installation
 - Use one of the installers found in the releases (from V2.1)
 - Unzip the folder as a portable program (V1.1 + V1.0)
 - Use the source code to build your own using Visual Studio (made on VS2019)
-
----
