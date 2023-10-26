@@ -7,13 +7,13 @@ This makes it a very simple, fluent looking and lightweight program/tool.
 ***You might need to install .NET 6.0 for this.***
 
 ---
-Start screen (blank):
+Start screen (blank):\
 ![image](https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/d241ddeb-3664-40dc-ba92-c01c7307eb0f)
 
-Opened file + resize:
+Opened file + resize:\
 ![image](https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/ad70e9ec-6212-45b2-9e32-71a9c241689e)
 
-Search (searches through entries, not column names):
+Search (searches through entries, not column names):\
 ![image](https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/23205bb6-ad68-4e9a-ae03-b4cd0615f9b7)
 
 
