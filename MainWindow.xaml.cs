@@ -46,11 +46,7 @@ namespace FlexibleCSVE
         private void openItem_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog? csv = csvFileDialog();
-            if (csv == null)
-            {
-                MessageBox.Show("Canceled.");
-            }
-            else
+            if (csv != null)
             {   // File selected:
                 _contentList.Clear();
                 string[] totalContentList;
@@ -72,7 +68,7 @@ namespace FlexibleCSVE
         private OpenFileDialog? csvFileDialog()
         {
             OpenFileDialog csvFile = new OpenFileDialog();
-            csvFile.Filter = "CSV Files | *.csv";
+            csvFile.Filter = "CSV Files | *.csv|Any file | .*";
             csvFile.Title = "Open CSV File";
             csvFile.Multiselect = false;
             csvFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -88,7 +84,7 @@ namespace FlexibleCSVE
 
         private void contentListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (contentListBox.SelectedIndex == -1) { return;  }
+            if (contentListBox.SelectedIndex == -1) { return; }
 
             string[] data;
             data = _contentList[contentListBox.SelectedIndex].Split(specifierComboBox.SelectedValue.ToString());
@@ -133,14 +129,10 @@ namespace FlexibleCSVE
 
         private void saveItem_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog saveFile = csvFileDialog();
-            if (saveFile == null)
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "CSV Object file | .csv";
+            if (saveFile.ShowDialog() == true)
             {
-                MessageBox.Show("Canceled.");
-            }
-            else
-            {
-
                 StringBuilder stringBuilder = new StringBuilder();
 
                 // column names
@@ -157,7 +149,7 @@ namespace FlexibleCSVE
                 // data
                 for (int i = 0; i < _contentList.Count; i++)
                 {
-                    stringBuilder.AppendLine(_contentList[i]);
+                    stringBuilder.Append(_contentList[i]);
                 }
 
                 // save File
@@ -187,7 +179,7 @@ namespace FlexibleCSVE
                     FontFamily = _textFont,
                     FontSize = 16,
                     Content = columnNames[i],
-                    Margin = new Thickness(10, 10 + i * 30, 0, 0),
+                    Margin = new Thickness(10, 10 + i * 30, 0, 0)
                 };
                 drawingCanvas.Children.Add(label);
             }
@@ -197,10 +189,12 @@ namespace FlexibleCSVE
                 {
                     FontFamily = _textFont,
                     FontSize = 16,
-                    Margin = new Thickness(166, 10 + i * 30, 0, 0),
                     Width = 200,
+                    HorizontalAlignment = HorizontalAlignment.Right,
+                    Margin = new Thickness(0, 10 + i * 30, 0, 0)
                 };
                 drawingCanvas.Children.Add(textBox);
+                Canvas.SetRight(textBox, 10);
 
                 saveDataButton.IsEnabled = true;
                 newRowButton.IsEnabled = true;
