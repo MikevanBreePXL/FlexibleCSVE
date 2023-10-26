@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Flexible CSV Editor" Height="450" Width="900" WindowState="Normal" ResizeMode="CanResizeWithGrip" MinHeight="450" MinWidth="900">
     <DockPanel>
-        <Menu DockPanel.Dock="Top" Height="20" Background="#FFC5C5C5">
+        <Menu DockPanel.Dock="Top" Height="20" Background="#FFC5C5C5" FontFamily="Bahnschrift">
             <MenuItem Header="_File" Height="20">
                 <MenuItem Header="_Open..." Name="openMenuItem" Click="openMenuItem_Click" />
                 <MenuItem Header="_Save..." Name="saveMenuItem" Click="saveMenuItem_Click" />
@@ -26,12 +26,12 @@
             <Label Grid.Row="0" Grid.Column="0" Content="Select a row:" FontFamily="Bahnschrift SemiBold" FontSize="16" Margin="33,33,0,0" VerticalContentAlignment="Top" HorizontalAlignment="Left" Width="154" />
             <ListBox Grid.Row="0" Grid.Column="0" Name="contentListBox" FontFamily="Bahnschrift SemiBold" FontSize="14" SelectionChanged="contentListBox_SelectionChanged" Background="#ffeeeeee" Margin="33,66,33,0" />
 
-            <Button Grid.Row="1" Grid.Column="0" Name="saveDataButton" Content="Change row" FontFamily="Bahnschrift SemiBold" FontSize="14" Click="saveDataButton_Click" IsEnabled="False" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,22,33,0" Padding="2,1,2,1" IsDefault="True" />
-            <Button Grid.Row="1" Grid.Column="0" Name="newRowButton" Content="Add a new row" FontFamily="Bahnschrift SemiBold" FontSize="14" Click="newRowButton_Click" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="33,22,0,0" Padding="2,1,2,1"/>
-            <Button Grid.Row="1" Grid.Column="0" Name="deleteRowButton" Content="Delete a row" FontFamily="Bahnschrift SemiBold" FontSize="14" IsEnabled="False" Click="deleteRowButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="33,0,0,22" Padding="2,1,2,1" />
+            <Button Grid.Row="1" Grid.Column="0" Name="saveDataButton" Content="Change row" FontFamily="Bahnschrift SemiBold" FontSize="14" Click="saveDataButton_Click" IsEnabled="False" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,22,33,0" Padding="3,2,3,2" IsDefault="True" />
+            <Button Grid.Row="1" Grid.Column="0" Name="newRowButton" Content="Add a new row" FontFamily="Bahnschrift" FontSize="14" Click="newRowButton_Click" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="33,22,0,0" Padding="3,2,3,2"/>
+            <Button Grid.Row="1" Grid.Column="0" Name="deleteRowButton" Content="Delete a row" FontFamily="Bahnschrift" FontSize="14" IsEnabled="False" Click="deleteRowButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="33,0,0,22" Padding="3,2,3,2" />
 
-            <Label Grid.Row="1" Grid.Column="0" Content="Comma Specifier:" FontFamily="Bahnschrift SemiBold" FontSize="14" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,66,22"/>
-            <ComboBox Grid.Row="1" Grid.Column="0" Name="specifierComboBox" FontSize="16" FontFamily="Bahnschrift SemiBold" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,33,22" SelectionChanged="specifierComboBox_SelectionChanged" SelectedIndex="0" />
+            <Label Grid.Row="1" Grid.Column="0" Content="Comma Specifier:" FontFamily="Bahnschrift SemiBold" FontSize="14" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,66,22" Height="25" Width="120"/>
+            <ComboBox Grid.Row="1" Grid.Column="0" Name="specifierComboBox" FontSize="16" FontFamily="Bahnschrift SemiBold" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,33,22" SelectionChanged="specifierComboBox_SelectionChanged" SelectedIndex="0" Padding="6,3,6,3" />
 
 
             <Canvas Name="editCanvas" Background="#ffefefef" Grid.Column="1" Grid.RowSpan="2" Margin="0,10,10,10" ClipToBounds="True" />
