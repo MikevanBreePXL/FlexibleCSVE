@@ -13,16 +13,12 @@ Start screen (blank):\
 Opened file + resize:\
 ![image](https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/ad70e9ec-6212-45b2-9e32-71a9c241689e)
 
-Search (searches through entries, not column names):\
+Search (searches through entries, not column names):
+
 ![image](https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/23205bb6-ad68-4e9a-ae03-b4cd0615f9b7)
 
 
 
-
-
-
-
-<br/>
 
 # Tips
 - The program automatically fills missing areas with ""
@@ -30,7 +26,7 @@ Search (searches through entries, not column names):\
 - The currently edited values aren't auto-saved anywhere
 
 ---
-<br/>
+
 
 # Installation
 - Use one of the installers found in the releases (from V2.1)
