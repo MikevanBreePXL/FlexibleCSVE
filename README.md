@@ -24,8 +24,7 @@ Search (searches through entries, not column names):
 - The program automatically fills missing areas with ""
 - Entries aren't saved until you click on "Change row"
 - The currently edited values aren't auto-saved anywhere
-- 
-<br />
+
 
 # Installation
 - Use one of the installers found in the releases (from V2.1)
