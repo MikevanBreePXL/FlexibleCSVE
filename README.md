@@ -11,6 +11,7 @@ This makes it a very simple, fluent looking and lightweight program/tool.
 - The program automatically fills missing areas with ""
 - Entries aren't saved until you click on "Change row"
 - The currently edited values aren't auto-saved anywhere
+- There's an Example .csv file to be found in the repository
 
 
 ## Installation
