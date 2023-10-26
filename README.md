@@ -7,30 +7,32 @@ This makes it a very simple, fluent looking and lightweight program/tool.
 ***You might need to install .NET 6.0 for this.***
 
 ---
-<img src="https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/b689f524-66b0-49fb-95e6-9fe1eaa17474" alt="program screenshot" />
-<img src="https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/e7fdbfcc-6e74-4c5c-b0e3-2cc040aa72c6" alt="program screenshot" />
-<img src="https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/ebded63c-6c50-4153-b144-d56b67d6421c" alt="program screenshot" />
+Start screen (blank):
+![image](https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/d241ddeb-3664-40dc-ba92-c01c7307eb0f)
+Opened file + resize:
+![image](https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/ad70e9ec-6212-45b2-9e32-71a9c241689e)
+Search (searches through entries, not column names):
+![image](https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/23205bb6-ad68-4e9a-ae03-b4cd0615f9b7)
+
+
+
+
+
+
 
 <br/>
 
 # Tips
-- The program automatically fills missing areas with 0's
-- Nothing is saved until you go to File -> Save... (This has both it's negative and positive sides.)
-- Choose the right comma specifier before opening (and saving!) the file. It can't corrupt the original file, but the tool will have visual glitches until you open it right.
+- The program automatically fills missing areas with ""
+- Entries aren't saved until you click on "Change row"
+- The currently edited values aren't auto-saved anywhere
 
 ---
 <br/>
 
 # Installation
-## step 1: Download
-Download the zip and extract this where you want your program files to stay.
-Examples: `C:\Program Files`,  `%localappdata%`, or in a local folder on your Desktop/Documents as a portable program.
-## step 2: Shortcut
-If you've extracted your folder in a more hidden location (see previous examples)
-=> Right click on "CSVOpener.exe" 
-=> Send to >
-=> Desktop (Create Shortcut)
-## step 3: Enjoy!
-Installation done, launch the program from the shortcut or \*.exe and it should pop right up!
+- Use one of the installers found in the releases (from V2.1)
+- Unzip the folder as a portable program (V1.1 + V1.0)
+- Use the source code to build your own using Visual Studio (made on VS2019)
 
 ---
