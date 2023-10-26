@@ -1,4 +1,4 @@
-# Flexible CSV Editor
+# Flexible CSV Editor (FlexibleCSVE)
 A simple and flexible Windows .CSV reader and editor, made around .NET / C#. The way this program structurally works is object-oriented.
 <br/><br/>
 The tool works as much around the .csv file as it can, it will automatically change all its labels to match column names upon opening, show the right amount of fields, etc.
