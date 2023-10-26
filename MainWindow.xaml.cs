@@ -1,22 +1,11 @@
-﻿using FlexibleCSVE;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FlexibleCSVE
 {
@@ -25,39 +14,38 @@ namespace FlexibleCSVE
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string fileLocation;
-        public IList<string> _contentList = new ObservableCollection<string>();
-        private FontFamily _textFont = new FontFamily("Bahnschrift Semibold");
-        public IList<string> commaSpecifiers = new List<string> { ";", ":", ","};
+        private readonly FontFamily _textFont = new("Bahnschrift Semibold");
+        private readonly IList<string> commaSpecifiers = new List<string> { ";", ":", "," };
 
+        private string filePath;
         private string[] columnNamesList;
 
         public MainWindow()
         {
             InitializeComponent();
-            contentListBox.ItemsSource = _contentList;
             specifierComboBox.ItemsSource = commaSpecifiers;
         }
 
-        private void openItem_Click(object sender, RoutedEventArgs e)
+        private void openMenuItem_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog? csv = csvFileDialog();
             if (csv != null)
             {   // File selected:
-                fileLocation = csv.FileName;
-                _contentList.Clear();
+                filePath = csv.FileName;
+                contentListBox.Items.Clear();
                 string[] totalContentList;
-                using (StreamReader reader = new StreamReader(csv.FileName))
+                using (StreamReader reader = new StreamReader(filePath))
                 {
                     columnNamesList = reader.ReadLine().Split(specifierComboBox.SelectedValue.ToString());
                     totalContentList = reader.ReadToEnd().Split("\n");
                 }
                 foreach (string line in totalContentList)
                 {
-                    _contentList.Add(line);
+                    contentListBox.Items.Add(line);
                 }
-
+                contentListBox.UpdateLayout();
                 drawEditor(editCanvas, columnNamesList);
+                contentListBox.SelectedIndex = 0;
             }
 
         }
@@ -84,7 +72,7 @@ namespace FlexibleCSVE
             if (contentListBox.SelectedIndex == -1) { return; }
 
             string[] data;
-            data = _contentList[contentListBox.SelectedIndex].Split(specifierComboBox.SelectedValue.ToString());
+            data = ((string) contentListBox.Items[contentListBox.SelectedIndex]).Split(specifierComboBox.SelectedValue.ToString());
 
             for (int i = editCanvas.Children.Count / 2; i < editCanvas.Children.Count; i++)
             {
@@ -94,9 +82,50 @@ namespace FlexibleCSVE
                     textBox.Text = data[i - (editCanvas.Children.Count / 2)];
                 } catch (IndexOutOfRangeException)
                 {
-                    textBox.Text = "0";
+                    textBox.Text = "";
                 }
             }
+        }
+
+        private void saveMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "CSV Object file | .csv";
+            if (saveFile.ShowDialog() == true)
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+
+                // column names
+                for (int i = 0; i < columnNamesList.Length - 1; i++)
+                {
+                    stringBuilder.Append(columnNamesList[i]);
+                    if (i < columnNamesList.Length - 1)
+                    {
+                        stringBuilder.Append(specifierComboBox.SelectedValue);
+                    }
+                }
+                stringBuilder.Append('\n');
+
+                // data
+                for (int i = 0; i < contentListBox.Items.Count - 1; i++)
+                {
+                    stringBuilder.AppendLine((string)contentListBox.Items[i]);
+                }
+
+                // save File
+                using (StreamWriter writer = new StreamWriter(saveFile.FileName))
+                {
+                    writer.Write(stringBuilder.ToString());
+                }
+
+                MessageBox.Show("Saved Successfully", "Saved CSV file", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void searchMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            SearchWindow searchWindow = new SearchWindow();
+            searchWindow.ShowDialog();
         }
 
         private void saveDataButton_Click(object sender, RoutedEventArgs e)
@@ -111,57 +140,27 @@ namespace FlexibleCSVE
                     sb.Append(";");
                 }
             }
-            _contentList[contentListBox.SelectedIndex] = sb.ToString();
+            contentListBox.Items[contentListBox.SelectedIndex] = sb.ToString();
         }
 
         private void newRowButton_Click(object sender, RoutedEventArgs e)
         {
-            _contentList.Add(new string(Char.Parse(specifierComboBox.SelectedValue.ToString()), columnNamesList.Length - 1));
-        }
-
-        private void exitItem_Click(object sender, RoutedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void saveItem_Click(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Filter = "CSV Object file | .csv";
-            if (saveFile.ShowDialog() == true)
-            {
-                StringBuilder stringBuilder = new StringBuilder();
-
-                // column names
-                for (int i = 0; i < columnNamesList.Length; i++)
-                {
-                    stringBuilder.Append(columnNamesList[i]);
-                    if (i < columnNamesList.Length - 1)
-                    {
-                        stringBuilder.Append(specifierComboBox.SelectedValue);
-                    }
-                }
-                stringBuilder.Append("\n");
-
-                // data
-                for (int i = 0; i < _contentList.Count; i++)
-                {
-                    stringBuilder.Append(_contentList[i]);
-                }
-
-                // save File
-                using (StreamWriter writer = new StreamWriter(saveFile.FileName))
-                {
-                    writer.Write(stringBuilder.ToString());
-                }
-
-                MessageBox.Show("Saved Successfully", "Saved CSV file", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            contentListBox.Items.Add(new string(Char.Parse(specifierComboBox.SelectedValue.ToString()), columnNamesList.Length - 1));
         }
 
         private void deleteRowButton_Click(object sender, RoutedEventArgs e)
         {
-            _contentList.RemoveAt(contentListBox.SelectedIndex);
+            int toDeleteIndex = contentListBox.SelectedIndex;
+            if (contentListBox.SelectedIndex == 0)
+            {
+                contentListBox.SelectedIndex = 1;
+            }
+            else
+            {
+                contentListBox.SelectedIndex = contentListBox.SelectedIndex - 1;
+            }
+            contentListBox.Items.RemoveAt(toDeleteIndex);
+
             contentListBox.UpdateLayout();
         }
 
@@ -201,17 +200,17 @@ namespace FlexibleCSVE
 
         private void specifierComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (specifierComboBox.SelectedIndex < 0 || fileLocation == null) { return; }
-            _contentList.Clear();
+            if (specifierComboBox.SelectedIndex < 0 || filePath == null) { return; }
+            contentListBox.Items.Clear();
             string[] totalContentList;
-            using (StreamReader reader = new StreamReader(fileLocation))
+            using (StreamReader reader = new StreamReader(filePath))
             {
                 columnNamesList = reader.ReadLine().Split(specifierComboBox.SelectedValue.ToString());
                 totalContentList = reader.ReadToEnd().Split("\n");
             }
             foreach (string line in totalContentList)
             {
-                _contentList.Add(line);
+                contentListBox.Items.Add(line);
             }
 
             drawEditor(editCanvas, columnNamesList);
