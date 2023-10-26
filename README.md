@@ -7,19 +7,19 @@ This makes it a very simple, fluent looking and lightweight program/tool.
 ***You might need to install .NET 6.0 for this.***
 
 
-### Tips
+## Tips
 - The program automatically fills missing areas with ""
 - Entries aren't saved until you click on "Change row"
 - The currently edited values aren't auto-saved anywhere
 
 
-### Installation
+## Installation
 - Use one of the installers found in the releases (from V2.1)
 - Unzip the folder as a portable program (V1.1 + V1.0)
 - Use the source code to build your own using Visual Studio (made on VS2019)
 
   
-### Screenshots
+## Screenshots
 Start screen (blank):\
 ![image](https://github.com/MikevanBreePXL/FlexibleCSVE/assets/116728978/d241ddeb-3664-40dc-ba92-c01c7307eb0f)
 
